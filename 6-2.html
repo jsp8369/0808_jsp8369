@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {margin:0; padding:0;}
+        ul, li, ol {list-style: none;}
+        a {text-decoration: none; color:black;}
+        .a {cursor:pointer; width:50px; height:40px;}
+        header {width:100%; height:50px; background-color: #eee; position:absolute; opacity:0.7;}
+        header ul li a:hover {background-color: gray; }
+
+        #slider {width:100%; height:500px; background-image: url("https://plus.unsplash.com/premium_photo-1674671748477-5354897d35c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"); 
+        background-size: cover; background-position: center;}
+        #slider > h1 {color:#fff; text-align: center; letter-spacing: 20px; padding:180px 0 0 0}
+        #slider > p {color:#fff; text-align: center; padding:20px 0 0 0}
+        #slider > p > a {text-decoration: none; background-color: #000; opacity: 0.7; border-radius: 20px; padding:10px; color:#fff;}
+        #slider > p > a:hover {opacity: 0.9;}
+
+        
+        
+        @media (max-width:767px) {
+            header .small{display: flex; align-items: center;  justify-content: space-between;}
+        header ul {display: flex; flex-direction: column; }
+        header ul li a {padding:15px; display: block; line-height: 40px;}
+        .b {display: none;}
+        .a {display: block;}
+        }
+
+        @media (min-width:768px) {
+            header {display: flex; align-items: center;  justify-content: space-around;}
+        header ul {display: flex;}
+        header ul li a {padding:10px; }
+        .a {display: none;}
+        }
+    </style>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function (){
+        $(".a").click(function(){
+            $(".b").slideToggle();
+        });
+
+        $(window).resize(function () {
+            if (window.innerWidth >= 768) {
+                $(".b").show();
+            }
+        });
+
+        $(window).resize(function () {
+            if (window.innerWidth <= 767) {
+                $(".b").hide();
+            }
+        });
+    })
+
+        
+    
+</script>
+</head>
+<body>
+    
+    <header>
+        <div class="small">
+            <div class="logo">logo</div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png" alt="버튼" class="a">
+
+        </div>
+
+        <nav class="b">
+            <ul>
+                <li><a href="#">TOP</a></li>
+                <li><a href="#">콘텐츠</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">문의</a></li>
+
+            </ul>
+        </nav>
+
+
+    </header>
+
+    <div id="slider">
+        <h1>LOGGER</h1>
+        <p>맛있고 즐거운 라이프로그</p>
+        <p><a href="#">라이프로그 시작하기</a></p>
+    </div>
+</body>
+</html>

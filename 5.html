@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            background-color: #eee;
+            height: 50px;
+        }
+
+        header ul li a:hover {
+            background-color: #ccc;
+        }
+
+        .a {
+            cursor: pointer;
+            width: 50px;
+            height: 40px;
+        }
+
+
+
+        /*767픽셀 이하*/
+        @media (max-width:767px) {
+            header .small {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            header ul {
+                display: flex;
+                flex-direction: column;
+            }
+
+            header ul li a {
+                padding: 15px;
+                line-height: 40px;
+                color: #666;
+                text-decoration: none;
+                display: block;
+            }
+
+            .a {
+                display: block;
+            }
+
+            .b {
+                display: none;
+            }
+        }
+
+        /*768픽셀 이상*/
+        @media (min-width:768px) {
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            header ul {
+                display: flex;
+            }
+
+            header ul li a {
+                padding: 15px;
+                line-height: 40px;
+                color: #666;
+                text-decoration: none;
+            }
+
+            .a {
+                display: none;
+            }
+        }
+    </style>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function (){
+            $(".a").click(function(){
+                $(".b").slideToggle();
+            });
+
+            $(window).resize(function () {
+                if (window.innerWidth >= 768) {
+                    $(".b").show();
+                }
+            });
+
+            $(window).resize(function () {
+                if (window.innerWidth <= 767) {
+                    $(".b").hide();
+                }
+            });
+        })
+
+            
+        
+    </script>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="small">
+            <div class="logo">logo</div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png"
+                alt="햄버거 버튼" class="a">
+
+        </div>
+
+        <nav class="b">
+            <ul>
+                <li><a href="#">TOP</a></li>
+                <li><a href="#">콘텐츠</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">문의</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+</body>
+
+</html>
